@@ -10,7 +10,7 @@ _start:
 	# "write" syscall
 	mov %eax, 0x04
 	mov %ebx, 0x01	# stdout
-	lea %ecx, [print_msg]
+	lea %ecx, [print_msg]	# contains the string in ".data" section
 	mov %edx, 0x0d	# the string is 14 characters long	
 	int 0x80	# actually executing the syscall	
 
@@ -21,4 +21,4 @@ _start:
 
 .section .data
 	print_msg:
-	.ascii "Hello world!\n"
+	.ascii "Happy world!\n"
